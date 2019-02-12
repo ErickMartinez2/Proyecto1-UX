@@ -1,0 +1,12 @@
+.Navbar {
+    background-color:black;
+}
+
+.Navlink {
+    color:white;
+}
+
+.Navlink:hover {
+    color:black;
+    background-color:white;
+}
