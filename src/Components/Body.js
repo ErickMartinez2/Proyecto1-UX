@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
+    Card, CardImg, CardText, CardBody, CardHeader, CardFooter, Popover,
     CardTitle, CardSubtitle, Button, ButtonGroup, ListGroup, ListGroupItem, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
 } from 'reactstrap';
+import {
+    OverlayTrigger
+} from 'react-bootstrap'
 import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
+
+const popover = (
+    <Popover id="popover-basic" title="Popover right">
+        And here's some <strong>amazing</strong> content. It's very engaging. right?
+    </Popover>
+);
 
 class Body extends Component {
     constructor(props) {
         super(props);
         this.state = {};
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+        this.onRadioBtnClick1 = this.onRadioBtnClick1.bind(this);
     }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
-
+    onRadioBtnClick1(rSelected1) {
+        this.setState({ rSelected1 });
+    }
     render() {
         if (this.state.rSelected === 1) {
             return (
@@ -32,6 +44,17 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 925.95</p>
+                                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                                    <Button variant="success">Click me to see</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(1)} active={this.state.rSelected1 === 1}>S</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(2)} active={this.state.rSelected1 === 2}>M</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(3)} active={this.state.rSelected1 === 3}>L</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                         <div class="col-sm">
@@ -259,24 +282,26 @@ class Body extends Component {
                 <Card>
                     <CardImg width="100%" src={logo} alt="Card image cap" />
                     <CardBody>
-                        <Button onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>VER COLECCIÓN</Button>
+                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>VER COLECCIÓN</Button>
                     </CardBody>
                 </Card>
                 <Card>
                     <CardImg src={logo2} alt="Card image cap" />
                     <CardBody>
-                        <Button onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>VER COLECCIÓN</Button>
+                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>VER COLECCIÓN</Button>
                     </CardBody>
                 </Card>
                 <Card>
                     <CardImg src={logo3} alt="Card image cap" />
                     <CardBody>
-                        <Button onClick={() => this.onRadioBtnClick(3)} active={this.state.rSelected === 3}>VER COLECCIÓN</Button>
+                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.rSelected === 3}>VER COLECCIÓN</Button>
                     </CardBody>
                 </Card>
             </div>
         );
     }
 }
+
+
 
 export default Body;
