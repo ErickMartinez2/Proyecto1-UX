@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import {
-    Card, CardImg, CardText, CardBody, CardHeader, CardFooter, Popover,
+    Card, CardImg, CardText, CardBody, CardHeader, CardFooter,
     CardTitle, CardSubtitle, Button, ButtonGroup, ListGroup, ListGroupItem, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
 } from 'reactstrap';
 import {
-    OverlayTrigger
+    OverlayTrigger, Popover
 } from 'react-bootstrap'
 import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 
 const popover = (
-    <Popover id="popover-basic" title="Popover right">
-        And here's some <strong>amazing</strong> content. It's very engaging. right?
+    <Popover id="popover-basic" title="Ubicación en la Tienda">
+        <img style={{ width: "100%", height: "auto" }} src="https://www.diez.hn/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=9l1tj7dBnGSG$AWw041Als$daE2N3K4ZzOUsqbU5sYuZlneyn70_9g0zlcE5xAIaWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg" />
+    </Popover>
+);
+
+const popover2 = (
+    <Popover id="popover-basic" title="Ubicación en la Tienda">
+        <img style={{ width: "100%", height: "auto" }} src="https://www.cctrocadero.com/images/sport-line/005.jpg" />
+    </Popover>
+);
+
+const popover3 = (
+    <Popover id="popover-basic" title="Ubicación en la Tienda">
+        <img style={{ width: "100%", height: "auto" }} src="https://imgur.com/412930i.jpg" />
     </Popover>
 );
 
@@ -22,12 +34,32 @@ class Body extends Component {
         this.state = {};
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
         this.onRadioBtnClick1 = this.onRadioBtnClick1.bind(this);
+        this.onRadioBtnClick2 = this.onRadioBtnClick2.bind(this);
+        this.onRadioBtnClick3 = this.onRadioBtnClick3.bind(this);
+        this.onRadioBtnClick4 = this.onRadioBtnClick4.bind(this);
+        this.onRadioBtnClick5 = this.onRadioBtnClick5.bind(this);
+        this.onRadioBtnClick6 = this.onRadioBtnClick6.bind(this);
     }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
     onRadioBtnClick1(rSelected1) {
         this.setState({ rSelected1 });
+    }
+    onRadioBtnClick2(rSelected2) {
+        this.setState({ rSelected2 });
+    }
+    onRadioBtnClick3(rSelected3) {
+        this.setState({ rSelected3 });
+    }
+    onRadioBtnClick4(rSelected4) {
+        this.setState({ rSelected4 });
+    }
+    onRadioBtnClick5(rSelected5) {
+        this.setState({ rSelected5 });
+    }
+    onRadioBtnClick6(rSelected6) {
+        this.setState({ rSelected6 });
     }
     render() {
         if (this.state.rSelected === 1) {
@@ -44,8 +76,8 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 925.95</p>
-                                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-                                    <Button variant="success">Click me to see</Button>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover2}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
                                 </OverlayTrigger>
                                 <CardFooter>
                                     <p>TALLA</p>
@@ -66,6 +98,21 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 2,275.95</p>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA DE CALZADO</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(1)} active={this.state.rSelected2 === 1}>7.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(2)} active={this.state.rSelected2 === 2}>9</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(3)} active={this.state.rSelected2 === 3}>9.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(4)} active={this.state.rSelected2 === 4}>10</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(5)} active={this.state.rSelected2 === 5}>10.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(6)} active={this.state.rSelected2 === 6}>11</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(7)} active={this.state.rSelected2 === 7}>12</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                         <div class="col-sm">
@@ -77,6 +124,15 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 825.95</p>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover3}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA MISC</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick3(1)} active={this.state.rSelected3 === 1}>Unica</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                     </div>
@@ -91,6 +147,20 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 2,875.95</p>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA DE CALZADO</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(1)} active={this.state.rSelected4 === 1}>7</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(2)} active={this.state.rSelected4 === 2}>7.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>9</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>9.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>10.5</Button>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>11</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                         <div class="col-sm">
@@ -102,6 +172,15 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 1,055.95</p>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover3}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA MISC</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick5(1)} active={this.state.rSelected5 === 1}>Unica</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                         <div class="col-sm">
@@ -113,6 +192,15 @@ class Body extends Component {
                                 </strong>
                                 <p>NIKE</p>
                                 <p>L 999.99</p>
+                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                                </OverlayTrigger>
+                                <CardFooter>
+                                    <p>TALLA DE CALZADO</p>
+                                    <ButtonGroup>
+                                        <Button outline color="info" onClick={() => this.onRadioBtnClick6(1)} active={this.state.rSelected6 === 1}>10.5</Button>
+                                    </ButtonGroup>
+                                </CardFooter>
                             </Card>
                         </div>
                     </div>

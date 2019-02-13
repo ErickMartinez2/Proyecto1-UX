@@ -38,7 +38,7 @@ class Header extends Component {
                         <img style={{ width: "50%", height: "auto" }} src={logo} className="App-logo" alt="logo" />
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
-                    <Collapse isOpen={this.state.isOpen} navbar>
+                    <Collapse isOpen={this.state.isOpen} light navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <NavLink className="Navlink" href="https://sportline.com.hn/blog">BLOG</NavLink>
