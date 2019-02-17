@@ -122,5 +122,67 @@
             "info":"Talla MISC: Unica",
             "ra":"no"
         }
+    ],
+    "catalogo3": [
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/4/942842-010-phsrh000.jpg",
+            "genero":"HOMBRE",
+            "nombre":"VAPORMAX FLYKNIT 2",
+            "marca":"NIKE",
+            "precio":"L 6,795.95",
+            "ubicacion":"1",
+            "info":"Tallas de Calzado: 8, 8.5, 9, 9.5, 10, 10.5",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/s/x/sx5462-381-phsfh001.jpg",
+            "genero":"HOMBRE",
+            "nombre":"ELITE CUSHIONED NO-SHOW",
+            "marca":"NIKE",
+            "precio":"L 425.95",
+            "ubicacion":"3",
+            "info":"Talla MISC: 12.5, 8-9.5",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/833591-081-phsfh001.jpg",
+            "genero":"HOMBRE",
+            "nombre":"MILLER TOP",
+            "marca":"NIKE",
+            "precio":"L 855.95",
+            "ubicacion":"2",
+            "info":"Tallas: S, M, L",
+            "ra":"si"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/9/892911-478-phslh000.jpg",
+            "genero":"HOMBRE",
+            "nombre":"DISTANCE 7",
+            "marca":"NIKE",
+            "precio":"L 1,095.95",
+            "ubicacion":"3",
+            "info":"Talla: XL",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/9/890353-618-phsfh001.jpg",
+            "genero":"MUJER",
+            "nombre":"RUNNING TOP",
+            "marca":"NIKE",
+            "precio":"L 725.95",
+            "ubicacion":"2",
+            "info":"Tallas: S, M, L",
+            "ra":"si"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/4/942855-009-phsrh000.jpg",
+            "genero":"MUJER",
+            "nombre":"AIR ZOOM PEGASUS 35",
+            "marca":"NIKE",
+            "precio":"L 3,695.95",
+            "ubicacion":"1",
+            "info":"Tallas de Calzado: 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10",
+            "ra":"no"
+        }
     ]
 }

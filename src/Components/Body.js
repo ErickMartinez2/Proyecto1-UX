@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Card, CardImg, CardText, CardBody, CardHeader, CardFooter,
-    CardTitle, CardSubtitle, Button, ButtonGroup, ListGroup, ListGroupItem, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink
+    Card, CardImg, CardBody, CardHeader, CardFooter, Button
 } from 'reactstrap';
 import {
     OverlayTrigger, Popover
@@ -11,6 +10,7 @@ import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 import { catalogo1 } from './Catalogo.json';
 import { catalogo2 } from './Catalogo.json';
+import { catalogo3 } from './Catalogo.json';
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -71,7 +71,7 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1, catalogo2 };
+        this.state = { catalogo1, catalogo2, catalogo3 };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     }
     onRadioBtnClick(rSelected) {
@@ -145,79 +145,34 @@ class Body extends Component {
                 );
             } else {
                 if (this.state.rSelected === 3) {
+                    const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                        return (
+                            <div class="col-md-4">
+                                <Card>
+                                    {RA(catalogo3.ra)}
+                                    <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
+                                    <p>{catalogo3.genero}</p>
+                                    <strong>
+                                        <p>{catalogo3.nombre}</p>
+                                    </strong>
+                                    <p>{catalogo3.marca}</p>
+                                    <p>{catalogo3.precio}</p>
+                                    {ubi(catalogo3.ubicacion)}
+                                    <CardFooter>
+                                        <p>{catalogo3.info}</p>
+                                    </CardFooter>
+                                </Card>
+                                <p> </p>
+                            </div>
+                        );
+                    })
                     return (
                         <div class="container">
-                            <h1>COLECCIÓN RUNNING</h1>
-                            <div class="row">
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/4/942842-010-phsrh000.jpg" />
-                                        <p>HOMBRE</p>
-                                        <strong>
-                                            <p>VAPORMAX FLYKNIT 2</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 6,795.95</p>
-                                    </Card>
-                                </div>
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/s/x/sx5462-381-phsfh001.jpg" />
-                                        <p>HOMBRE</p>
-                                        <strong>
-                                            <p>ELITE CUSHIONED NO-SHOW</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 425.95</p>
-                                    </Card>
-                                </div>
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/833591-081-phsfh001.jpg" />
-                                        <p>HOMBRE</p>
-                                        <strong>
-                                            <p>MILLER TOP</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 855.95</p>
-                                    </Card>
-                                </div>
-                            </div>
-                            <p> </p>
-                            <div class="row">
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/9/892911-478-phslh000.jpg" />
-                                        <p>HOMBRE</p>
-                                        <strong>
-                                            <p>DISTANCE 7"</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 1,095.95</p>
-                                    </Card>
-                                </div>
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/9/890353-618-phsfh001.jpg" />
-                                        <p>MUJER</p>
-                                        <strong>
-                                            <p>RUNNING TOP</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 725.95</p>
-                                    </Card>
-                                </div>
-                                <div class="col-sm">
-                                    <Card>
-                                        <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/4/942855-009-phsrh000.jpg" />
-                                        <p>MUJER</p>
-                                        <strong>
-                                            <p>AIR ZOOM PEGASUS 35</p>
-                                        </strong>
-                                        <p>NIKE</p>
-                                        <p>L 3,695.95</p>
-                                    </Card>
-                                </div>
+                            <strong>
+                                <h1>COLECCIÓN RUNNING</h1>
+                            </strong>
+                            <div class="row mt-4">
+                                {cat3}
                             </div>
                         </div>
                     );
