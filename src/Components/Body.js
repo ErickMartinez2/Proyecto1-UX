@@ -79,54 +79,22 @@ class Body extends Component {
     }
     render() {
         if (this.state.rSelected === 1) {
-            const cat1 = this.state.catalogo1.map((catalogo1, i) => {
-                return (
-                    <div class="col-md-4">
-                        <Card>
-                            {RA(catalogo1.ra)}
-                            <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
-                            <p>{catalogo1.genero}</p>
-                            <strong>
-                                <p>{catalogo1.nombre}</p>
-                            </strong>
-                            <p>{catalogo1.marca}</p>
-                            <p>{catalogo1.precio}</p>
-                            {ubi(catalogo1.ubicacion)}
-                            <CardFooter>
-                                <p>{catalogo1.info}</p>
-                            </CardFooter>
-                        </Card>
-                        <p> </p>
-                    </div>
-                );
-            })
-            return (
-                <div class="container">
-                    <strong>
-                        <h1>COLECCIÓN CASUAL</h1>
-                    </strong>
-                    <div class="row mt-4">
-                        {cat1}
-                    </div>
-                </div>
-            );
-        } else {
-            if (this.state.rSelected === 2) {
-                const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+            if (this.props.search === "") {
+                const cat1 = this.state.catalogo1.map((catalogo1, i) => {
                     return (
                         <div class="col-md-4">
                             <Card>
-                                {RA(catalogo2.ra)}
-                                <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
-                                <p>{catalogo2.genero}</p>
+                                {RA(catalogo1.ra)}
+                                <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
+                                <p>{catalogo1.genero}</p>
                                 <strong>
-                                    <p>{catalogo2.nombre}</p>
+                                    <p>{catalogo1.nombre}</p>
                                 </strong>
-                                <p>{catalogo2.marca}</p>
-                                <p>{catalogo2.precio}</p>
-                                {ubi(catalogo2.ubicacion)}
+                                <p>{catalogo1.marca}</p>
+                                <p>{catalogo1.precio}</p>
+                                {ubi(catalogo1.ubicacion)}
                                 <CardFooter>
-                                    <p>{catalogo2.info}</p>
+                                    <p>{catalogo1.info}</p>
                                 </CardFooter>
                             </Card>
                             <p> </p>
@@ -136,30 +104,66 @@ class Body extends Component {
                 return (
                     <div class="container">
                         <strong>
-                            <h1>COLECCIÓN TRAINING</h1>
+                            <h1>COLECCIÓN CASUAL</h1>
                         </strong>
                         <div class="row mt-4">
-                            {cat2}
+                            {cat1}
                         </div>
                     </div>
                 );
             } else {
-                if (this.state.rSelected === 3) {
-                    const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                const cat1 = this.state.catalogo1.map((catalogo1, i) => {
+                    if (catalogo1.nombre.includes(this.props.search)) {
                         return (
                             <div class="col-md-4">
                                 <Card>
-                                    {RA(catalogo3.ra)}
-                                    <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
-                                    <p>{catalogo3.genero}</p>
+                                    {RA(catalogo1.ra)}
+                                    <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
+                                    <p>{catalogo1.genero}</p>
                                     <strong>
-                                        <p>{catalogo3.nombre}</p>
+                                        <p>{catalogo1.nombre}</p>
                                     </strong>
-                                    <p>{catalogo3.marca}</p>
-                                    <p>{catalogo3.precio}</p>
-                                    {ubi(catalogo3.ubicacion)}
+                                    <p>{catalogo1.marca}</p>
+                                    <p>{catalogo1.precio}</p>
+                                    {ubi(catalogo1.ubicacion)}
                                     <CardFooter>
-                                        <p>{catalogo3.info}</p>
+                                        <p>{catalogo1.info}</p>
+                                    </CardFooter>
+                                </Card>
+                                <p> </p>
+                            </div>
+                        );
+                    }
+                })
+                return (
+                    <div class="container">
+                        <strong>
+                            <h1>COLECCIÓN CASUAL</h1>
+                        </strong>
+                        <div class="row mt-4">
+                            {cat1}
+                        </div>
+                    </div>
+                );
+            }
+        } else {
+            if (this.state.rSelected === 2) {
+                if (this.props.search === "") {
+                    const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+                        return (
+                            <div class="col-md-4">
+                                <Card>
+                                    {RA(catalogo2.ra)}
+                                    <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
+                                    <p>{catalogo2.genero}</p>
+                                    <strong>
+                                        <p>{catalogo2.nombre}</p>
+                                    </strong>
+                                    <p>{catalogo2.marca}</p>
+                                    <p>{catalogo2.precio}</p>
+                                    {ubi(catalogo2.ubicacion)}
+                                    <CardFooter>
+                                        <p>{catalogo2.info}</p>
                                     </CardFooter>
                                 </Card>
                                 <p> </p>
@@ -169,13 +173,117 @@ class Body extends Component {
                     return (
                         <div class="container">
                             <strong>
-                                <h1>COLECCIÓN RUNNING</h1>
+                                <h1>COLECCIÓN TRAINING</h1>
                             </strong>
                             <div class="row mt-4">
-                                {cat3}
+                                {cat2}
                             </div>
                         </div>
                     );
+                } else {
+                    const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+                        if (catalogo2.nombre.includes(this.props.search)) {
+                            return (
+                                <div class="col-md-4">
+                                    <Card>
+                                        {RA(catalogo2.ra)}
+                                        <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
+                                        <p>{catalogo2.genero}</p>
+                                        <strong>
+                                            <p>{catalogo2.nombre}</p>
+                                        </strong>
+                                        <p>{catalogo2.marca}</p>
+                                        <p>{catalogo2.precio}</p>
+                                        {ubi(catalogo2.ubicacion)}
+                                        <CardFooter>
+                                            <p>{catalogo2.info}</p>
+                                        </CardFooter>
+                                    </Card>
+                                    <p> </p>
+                                </div>
+                            );
+                        }
+                    })
+                    return (
+                        <div class="container">
+                            <strong>
+                                <h1>COLECCIÓN TRAINING</h1>
+                            </strong>
+                            <div class="row mt-4">
+                                {cat2}
+                            </div>
+                        </div>
+                    );
+                }
+            } else {
+                if (this.state.rSelected === 3) {
+                    if (this.props.search === "") {
+                        const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                            return (
+                                <div class="col-md-4">
+                                    <Card>
+                                        {RA(catalogo3.ra)}
+                                        <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
+                                        <p>{catalogo3.genero}</p>
+                                        <strong>
+                                            <p>{catalogo3.nombre}</p>
+                                        </strong>
+                                        <p>{catalogo3.marca}</p>
+                                        <p>{catalogo3.precio}</p>
+                                        {ubi(catalogo3.ubicacion)}
+                                        <CardFooter>
+                                            <p>{catalogo3.info}</p>
+                                        </CardFooter>
+                                    </Card>
+                                    <p> </p>
+                                </div>
+                            );
+                        })
+                        return (
+                            <div class="container">
+                                <strong>
+                                    <h1>COLECCIÓN RUNNING</h1>
+                                </strong>
+                                <div class="row mt-4">
+                                    {cat3}
+                                </div>
+                            </div>
+                        );
+                    } else {
+                        const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                            if (catalogo3.nombre.includes(this.props.search)) {
+                                return (
+                                    <div class="col-md-4">
+                                        <Card>
+                                            {RA(catalogo3.ra)}
+                                            <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
+                                            <p>{catalogo3.genero}</p>
+                                            <strong>
+                                                <p>{catalogo3.nombre}</p>
+                                            </strong>
+                                            <p>{catalogo3.marca}</p>
+                                            <p>{catalogo3.precio}</p>
+                                            {ubi(catalogo3.ubicacion)}
+                                            <CardFooter>
+                                                <p>{catalogo3.info}</p>
+                                            </CardFooter>
+                                        </Card>
+                                        <p> </p>
+                                    </div>
+                                );
+                            }
+                        })
+                        return (
+                            <div class="container">
+                                <strong>
+                                    <h1>COLECCIÓN RUNNING</h1>
+                                </strong>
+                                <div class="row mt-4">
+                                    {cat3}
+                                </div>
+                            </div>
+                        );
+                    }
                 }
             }
         }
