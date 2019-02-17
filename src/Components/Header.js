@@ -18,7 +18,6 @@ import logo from "./sp2.png";
 class Header extends Component {
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
@@ -29,7 +28,6 @@ class Header extends Component {
             isOpen: !this.state.isOpen
         });
     }
-
     render() {
         return (
             <div>
@@ -37,6 +35,10 @@ class Header extends Component {
                     <NavbarBrand href="/">
                         <img style={{ width: "50%", height: "auto" }} src={logo} className="App-logo" alt="logo" />
                     </NavbarBrand>
+                    <img style={{ width: "5%", height: "5%" }} src={"https://png.pngtree.com/svg/20170313/search_white__122520.png"} alt="logo2" />
+                    <p>  H</p>
+                    <input type="text" placeholder="Search.."></input>
+                    <p> HEY</p>
                     <NavbarToggler className="Collapse" onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} light navbar>
                         <Nav className="ml-auto" navbar>

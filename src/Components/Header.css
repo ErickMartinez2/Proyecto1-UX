@@ -1,6 +1,7 @@
 .Navbar {
     background-color:black;
-    position: fixed;
+    position: relative !important;
+    color:black;
 }
 
 .Navlink {
