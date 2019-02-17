@@ -1,11 +1,64 @@
 {
-    "catalogo1": {
-        "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/831731-685-phsfh001.jpg",
-        "genero":"MUJER",
-        "nombre":"SPORTSWEAR ESSENTIAL",
-        "marca":"NIKE",
-        "precio":"L 925.95",
-        "ubicacion":"2",
-        "info":"Tallas: S, M, L"
-    }
+    "catalogo1": [
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/831731-685-phsfh001.jpg",
+            "genero":"MUJER",
+            "nombre":"SPORTSWEAR ESSENTIAL",
+            "marca":"NIKE",
+            "precio":"L 925.95",
+            "ubicacion":"2",
+            "info":"Tallas: S, M, L",
+            "ra":"si"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/2/921669-008-phsrh000.jpg",
+            "genero":"HOMBRE",
+            "nombre":"TANJUN RACER",
+            "marca":"NIKE",
+            "precio":"L 2,275.95",
+            "ubicacion":"1",
+            "info":"Tallas de Calzado: 7.5, 9, 9.5, 10, 10.5, 11, 12",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5405-452-phsfh000.jpg",
+            "genero":"UNISEX",
+            "nombre":"ELEMENTAL SWOOSH",
+            "marca":"NIKE",
+            "precio":"L 825.95",
+            "ubicacion":"3",
+            "info":"Talla MISC: Unica",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/1/918227-014-phsrh000.jpg",
+            "genero":"HOMBRE",
+            "nombre":"DUALTONE RACER",
+            "marca":"NIKE",
+            "precio":"L 2,875.95",
+            "ubicacion":"1",
+            "info":"Tallas de Calzado: 7, 7.5, 9, 9.5, 10.5, 11",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5231-016-phsfh000.jpg",
+            "genero":"UNISEX",
+            "nombre":"ALL ACCESS SOLEDAY",
+            "marca":"NIKE",
+            "precio":"L 1,055.95",
+            "ubicacion":"3",
+            "info":"Talla MISC: Unica",
+            "ra":"no"
+        },
+        {
+            "imagen":"https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/1/916780-008-phslh000.jpg",
+            "genero":"HOMBRE",
+            "nombre":"CK RACER",
+            "marca":"NIKE",
+            "precio":"L 999.99",
+            "ubicacion":"1",
+            "info":"Talla de Calzado: 10.5",
+            "ra":"no"
+        }
+    ]
 }

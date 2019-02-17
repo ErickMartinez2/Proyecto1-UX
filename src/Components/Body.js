@@ -10,7 +10,6 @@ import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 import { catalogo1 } from './Catalogo.json';
-import { resolve } from 'q';
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -54,62 +53,55 @@ function ubi(pos) {
     }
 }
 
+function RA(ra) {
+    if (ra === "si") {
+        return (
+            <CardHeader>REALIDAD AUMENTADA</CardHeader>
+        );
+    }
+}
+
 class Body extends Component {
     constructor(props) {
         super(props);
         this.state = { catalogo1 };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-        this.onRadioBtnClick1 = this.onRadioBtnClick1.bind(this);
-        this.onRadioBtnClick2 = this.onRadioBtnClick2.bind(this);
-        this.onRadioBtnClick3 = this.onRadioBtnClick3.bind(this);
-        this.onRadioBtnClick4 = this.onRadioBtnClick4.bind(this);
-        this.onRadioBtnClick5 = this.onRadioBtnClick5.bind(this);
-        this.onRadioBtnClick6 = this.onRadioBtnClick6.bind(this);
     }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
-    onRadioBtnClick1(rSelected1) {
-        this.setState({ rSelected1 });
-    }
-    onRadioBtnClick2(rSelected2) {
-        this.setState({ rSelected2 });
-    }
-    onRadioBtnClick3(rSelected3) {
-        this.setState({ rSelected3 });
-    }
-    onRadioBtnClick4(rSelected4) {
-        this.setState({ rSelected4 });
-    }
-    onRadioBtnClick5(rSelected5) {
-        this.setState({ rSelected5 });
-    }
-    onRadioBtnClick6(rSelected6) {
-        this.setState({ rSelected6 });
-    }
     render() {
         if (this.state.rSelected === 1) {
+            const cat1 = this.state.catalogo1.map((catalogo1, i) => {
+                return (
+                    <div class="col-md-4">
+                        <Card>
+                            {RA(catalogo1.ra)}
+                            <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
+                            <p>{catalogo1.genero}</p>
+                            <strong>
+                                <p>{catalogo1.nombre}</p>
+                            </strong>
+                            <p>{catalogo1.marca}</p>
+                            <p>{catalogo1.precio}</p>
+                            {ubi(catalogo1.ubicacion)}
+                            <CardFooter>
+                                <p>{catalogo1.info}</p>
+                            </CardFooter>
+                        </Card>
+                        <p> </p>
+                    </div>
+                );
+            })
             return (
                 <div class="container">
-                    <h1>COLECCIÓN CASUAL</h1>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
-                                <p>{catalogo1.genero}</p>
-                                <strong>
-                                    <p>{catalogo1.nombre}</p>
-                                </strong>
-                                <p>{catalogo1.marca}</p>
-                                <p>{catalogo1.precio}</p>
-                                {ubi(catalogo1.ubicacion)}
-                                <CardFooter>
-                                    <p>{catalogo1.info}</p>
-                                </CardFooter>
-                            </Card>
-                        </div>
+                    <strong>
+                        <h1>COLECCIÓN CASUAL</h1>
+                    </strong>
+                    <div class="row mt-4">
+                        {cat1}
                     </div>
-                </div >
+                </div>
             );
         } else {
             if (this.state.rSelected === 2) {
