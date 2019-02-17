@@ -9,6 +9,8 @@ import {
 import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
+import { catalogo1 } from './Catalogo.json';
+import { resolve } from 'q';
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -28,10 +30,34 @@ const popover3 = (
     </Popover>
 );
 
+function ubi(pos) {
+    if (pos === "1") {
+        return (
+            <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+            </OverlayTrigger>
+        );
+    } else {
+        if (pos === "2") {
+            return (
+                <OverlayTrigger trigger="click" placement="top" overlay={popover2}>
+                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                </OverlayTrigger>
+            );
+        } else {
+            return (
+                <OverlayTrigger trigger="click" placement="top" overlay={popover3}>
+                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
+                </OverlayTrigger>
+            );
+        }
+    }
+}
+
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { catalogo1 };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
         this.onRadioBtnClick1 = this.onRadioBtnClick1.bind(this);
         this.onRadioBtnClick2 = this.onRadioBtnClick2.bind(this);
@@ -67,144 +93,23 @@ class Body extends Component {
                 <div class="container">
                     <h1>COLECCIÓN CASUAL</h1>
                     <div class="row">
-                        <div class="col-sm">
+                        <div class="col-sm-4">
                             <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/831731-685-phsfh001.jpg" />
-                                <p>MUJER</p>
+                                <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
+                                <p>{catalogo1.genero}</p>
                                 <strong>
-                                    <p>SPORTSWEAR ESSENTIAL</p>
+                                    <p>{catalogo1.nombre}</p>
                                 </strong>
-                                <p>NIKE</p>
-                                <p>L 925.95</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover2}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
+                                <p>{catalogo1.marca}</p>
+                                <p>{catalogo1.precio}</p>
+                                {ubi(catalogo1.ubicacion)}
                                 <CardFooter>
-                                    <p>TALLA</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(1)} active={this.state.rSelected1 === 1}>S</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(2)} active={this.state.rSelected1 === 2}>M</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick1(3)} active={this.state.rSelected1 === 3}>L</Button>
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                        <div class="col-sm">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/2/921669-008-phsrh000.jpg" />
-                                <p>HOMBRE</p>
-                                <strong>
-                                    <p>TANJUN RACER</p>
-                                </strong>
-                                <p>NIKE</p>
-                                <p>L 2,275.95</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
-                                <CardFooter>
-                                    <p>TALLA DE CALZADO</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(1)} active={this.state.rSelected2 === 1}>7.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(2)} active={this.state.rSelected2 === 2}>9</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(3)} active={this.state.rSelected2 === 3}>9.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(4)} active={this.state.rSelected2 === 4}>10</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(5)} active={this.state.rSelected2 === 5}>10.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(6)} active={this.state.rSelected2 === 6}>11</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick2(7)} active={this.state.rSelected2 === 7}>12</Button>
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                        <div class="col-sm">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5405-452-phsfh000.jpg" />
-                                <p>UNISEX</p>
-                                <strong>
-                                    <p>ELEMENTAL SWOOSH</p>
-                                </strong>
-                                <p>NIKE</p>
-                                <p>L 825.95</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover3}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
-                                <CardFooter>
-                                    <p>TALLA MISC</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick3(1)} active={this.state.rSelected3 === 1}>Unica</Button>
-                                    </ButtonGroup>
+                                    <p>{catalogo1.info}</p>
                                 </CardFooter>
                             </Card>
                         </div>
                     </div>
-                    <p> </p>
-                    <div class="row">
-                        <div class="col-sm">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/1/918227-014-phsrh000.jpg" />
-                                <p>HOMBRE</p>
-                                <strong>
-                                    <p>DUALTONE RACER</p>
-                                </strong>
-                                <p>NIKE</p>
-                                <p>L 2,875.95</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
-                                <CardFooter>
-                                    <p>TALLA DE CALZADO</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(1)} active={this.state.rSelected4 === 1}>7</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(2)} active={this.state.rSelected4 === 2}>7.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>9</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>9.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>10.5</Button>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick4(3)} active={this.state.rSelected4 === 3}>11</Button>
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                        <div class="col-sm">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5231-016-phsfh000.jpg" />
-                                <p>UNISEX</p>
-                                <strong>
-                                    <p>ALL ACCESS SOLEDAY</p>
-                                </strong>
-                                <p>NIKE</p>
-                                <p>L 1,055.95</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover3}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
-                                <CardFooter>
-                                    <p>TALLA MISC</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick5(1)} active={this.state.rSelected5 === 1}>Unica</Button>
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                        <div class="col-sm">
-                            <Card>
-                                <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/9/1/916780-008-phslh000.jpg" />
-                                <p>HOMBRE</p>
-                                <strong>
-                                    <p>CK RACER</p>
-                                </strong>
-                                <p>NIKE</p>
-                                <p>L 999.99</p>
-                                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-                                    <Button outline color="secondary" variant="success">VER UBICACIÓN</Button>
-                                </OverlayTrigger>
-                                <CardFooter>
-                                    <p>TALLA DE CALZADO</p>
-                                    <ButtonGroup>
-                                        <Button outline color="info" onClick={() => this.onRadioBtnClick6(1)} active={this.state.rSelected6 === 1}>10.5</Button>
-                                    </ButtonGroup>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                    </div>
-                </div>
+                </div >
             );
         } else {
             if (this.state.rSelected === 2) {

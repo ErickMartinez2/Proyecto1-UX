@@ -1,5 +1,6 @@
 .Navbar {
     background-color:black;
+    position: fixed;
 }
 
 .Navlink {
@@ -9,4 +10,8 @@
 .Navlink:hover {
     color:black;
     background-color:white;
+}
+
+.Collapse {
+    border: 1px solid white !important;
 }
