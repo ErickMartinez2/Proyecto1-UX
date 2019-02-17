@@ -10,6 +10,7 @@ import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 import { catalogo1 } from './Catalogo.json';
+import { catalogo2 } from './Catalogo.json';
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -58,13 +59,19 @@ function RA(ra) {
         return (
             <CardHeader>REALIDAD AUMENTADA</CardHeader>
         );
+    } else {
+        return (
+            <CardHeader>
+                <p> </p>
+            </CardHeader>
+        );
     }
 }
 
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1 };
+        this.state = { catalogo1, catalogo2 };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     }
     onRadioBtnClick(rSelected) {
@@ -105,79 +112,34 @@ class Body extends Component {
             );
         } else {
             if (this.state.rSelected === 2) {
+                const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+                    return (
+                        <div class="col-md-4">
+                            <Card>
+                                {RA(catalogo2.ra)}
+                                <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
+                                <p>{catalogo2.genero}</p>
+                                <strong>
+                                    <p>{catalogo2.nombre}</p>
+                                </strong>
+                                <p>{catalogo2.marca}</p>
+                                <p>{catalogo2.precio}</p>
+                                {ubi(catalogo2.ubicacion)}
+                                <CardFooter>
+                                    <p>{catalogo2.info}</p>
+                                </CardFooter>
+                            </Card>
+                            <p> </p>
+                        </div>
+                    );
+                })
                 return (
                     <div class="container">
-                        <h1>COLECCIÓN TRAINING</h1>
-                        <div class="row">
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5335-399-phsfh000.jpg" />
-                                    <p>HOMBRE</p>
-                                    <strong>
-                                        <p>BRASILIAN DUFFEL</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 975.95</p>
-                                </Card>
-                            </div>
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/a/c/ac4058-404-phsfz001.jpg" />
-                                    <p>HOMBRE</p>
-                                    <strong>
-                                        <p>LARGE CAPACITY</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 795.95</p>
-                                </Card>
-                            </div>
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/8/889542-100-phsfh001.jpg" />
-                                    <p>MUJER</p>
-                                    <strong>
-                                        <p>PRO TRAINING ALL OVER MESH</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 725.95</p>
-                                </Card>
-                            </div>
-                        </div>
-                        <p> </p>
-                        <div class="row">
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/a/a/aa7064-005-phsrh000.jpg" />
-                                    <p>HOMBRE</p>
-                                    <strong>
-                                        <p>VARSITY COMPETE TRAINER</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 2,375.95</p>
-                                </Card>
-                            </div>
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/b/a/ba5490-466-phsfh000.jpg" />
-                                    <p>MUJER</p>
-                                    <strong>
-                                        <p>GYM CLUB</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 975.95</p>
-                                </Card>
-                            </div>
-                            <div class="col-sm">
-                                <Card>
-                                    <img style={{ width: "100%", height: "auto" }} src="https://sportline.com.hn/pub/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/8/3/832971-458-phsfh001.jpg" />
-                                    <p>HOMBRE</p>
-                                    <strong>
-                                        <p>ACADEMY JACQUARD</p>
-                                    </strong>
-                                    <p>NIKE</p>
-                                    <p>L 555.95</p>
-                                </Card>
-                            </div>
+                        <strong>
+                            <h1>COLECCIÓN TRAINING</h1>
+                        </strong>
+                        <div class="row mt-4">
+                            {cat2}
                         </div>
                     </div>
                 );
