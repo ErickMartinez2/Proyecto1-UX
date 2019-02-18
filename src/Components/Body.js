@@ -91,7 +91,7 @@ class Body extends Component {
                 const cat1 = this.state.catalogo1.map((catalogo1, i) => {
                     return (
                         <div class="col-md-4">
-                            <Card>
+                            <Card className="prueba"> 
                                 {RA(catalogo1.ra)}
                                 <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
                                 <p>{catalogo1.genero}</p>
@@ -104,7 +104,7 @@ class Body extends Component {
                                 <CardFooter>
                                     <p>{catalogo1.info}</p>
                                 </CardFooter>
-                                <Button outline color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
+                                <Button color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
                             </Card>
                             <p> </p>
                         </div>
@@ -138,7 +138,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo1.info}</p>
                                     </CardFooter>
-                                    <Button outline color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
+                                    <Button color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -175,7 +175,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo2.info}</p>
                                     </CardFooter>
-                                    <Button outline color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
+                                    <Button color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -209,7 +209,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo2.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
+                                        <Button color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -246,7 +246,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo3.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
+                                        <Button color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -280,7 +280,7 @@ class Body extends Component {
                                             <CardFooter>
                                                 <p>{catalogo3.info}</p>
                                             </CardFooter>
-                                            <Button outline color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
+                                            <Button color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                         </Card>
                                         <p> </p>
                                     </div>
