@@ -16,3 +16,8 @@
 .Collapse {
     border: 1px solid white !important;
 }
+
+.Card {
+    width:100%;
+    height:100%;
+}

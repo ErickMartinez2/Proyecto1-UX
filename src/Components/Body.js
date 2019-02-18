@@ -11,8 +11,7 @@ import logo3 from "./img3.jpeg";
 import { catalogo1 } from './Catalogo.json';
 import { catalogo2 } from './Catalogo.json';
 import { catalogo3 } from './Catalogo.json';
-import Header from './Header';
-
+import tienda from '../tienda';
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -73,14 +72,20 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1, catalogo2, catalogo3, carro:"COMER"};
+        this.state = { catalogo1, catalogo2, catalogo3};
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+        this.añadir = this.añadir.bind(this);
     }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
+    añadir(producto) {
+        tienda.dispatch({
+            type: "ADD_TO_CART",
+            producto
+        })
+    }
     render() {
-        const carro = this.state.carro
         if (this.state.rSelected === 1) {
             if (this.props.search === "") {
                 const cat1 = this.state.catalogo1.map((catalogo1, i) => {
@@ -99,7 +104,7 @@ class Body extends Component {
                                 <CardFooter>
                                     <p>{catalogo1.info}</p>
                                 </CardFooter>
-                                <Button outline color="info" onClick={() => <Header carrito={carro}/>}>Añadir al carrito</Button>
+                                <Button outline color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
                             </Card>
                             <p> </p>
                         </div>

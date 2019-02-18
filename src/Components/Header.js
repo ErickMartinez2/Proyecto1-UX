@@ -3,20 +3,30 @@ import {
     Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button
 } from 'reactstrap';
 import {
-    OverlayTrigger, Popover
+    OverlayTrigger, Popover, Table
 } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import "./Header.css";
 import logo from "./sp2.png";
 import Body from './Body';
+import tienda from '../tienda';
 
 class Header extends Component {
     constructor(props) {
         super(props);
+        this.props = { carrito: "MAMA" };
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
-            buscar: ""
+            buscar: "",
+            cart: []
         };
+        this.eliminar = this.eliminar.bind(this);
+        tienda.subscribe(() => {
+            this.setState({
+                cart: tienda.getState().cart
+            });
+        });
     }
     toggle() {
         this.setState({
@@ -34,19 +44,37 @@ class Header extends Component {
             [event.target.name]: event.target.value
         })
     }
-    prueba(p){
-        alert("HEY: " + p)
+    eliminar(producto) {
+
     }
     render() {
         const { buscar } = this.state
-        //const { carrito } = this.props.carro
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <Navbar className="Navbar" expand="md">
                         <OverlayTrigger trigger="click" placement="bottom" overlay={
                             <Popover id="popover-basic" title="Carrito de Compras">
-                                <p>Hey: {this.props.carrito}</p>
+                                {/*
+                                {this.state.cart.map(producto =>
+                                    <Card className="Card">
+                                        <p>{producto.nombre}</p>
+                                        <Button color="primary" onClick={() => this.eliminar(producto)}>primary</Button>
+                                    </Card>
+                                    */},
+                                    <Panel header="HEY">
+                                    <Table fill>
+                                        <tbody>
+                                            {this.state.cart.map(producto =>
+                                                <tr>
+                                                    <td>{producto.nombre}</td>
+                                                    <td>{producto.nombre}</td>
+                                                    <td>{producto.nombre}</td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </Table>
+                                </Panel>
                             </Popover>
                         }>
                             <Button outline color="secondary" variant="success">
