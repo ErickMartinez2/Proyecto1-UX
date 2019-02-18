@@ -13,7 +13,6 @@ import tienda from '../tienda';
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.props = { carrito: "MAMA" };
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
@@ -62,7 +61,7 @@ class Header extends Component {
                                         {this.state.cart.map(producto =>
                                             <tr>
                                                 <td>{producto.nombre}</td>
-                                                <td className="text-right">L. {producto.precio}</td>
+                                                <td className="text-right">L.{producto.precio}</td>
                                                 <td className="text-right">
                                                     <Button color="danger" onClick={() => this.eliminar(producto)}>X</Button>
                                                 </td>

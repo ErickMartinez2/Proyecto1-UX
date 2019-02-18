@@ -91,7 +91,7 @@ class Body extends Component {
                 const cat1 = this.state.catalogo1.map((catalogo1, i) => {
                     return (
                         <div class="col-md-4">
-                            <Card className="prueba"> 
+                            <Card> 
                                 {RA(catalogo1.ra)}
                                 <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
                                 <p>{catalogo1.genero}</p>
