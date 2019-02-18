@@ -72,7 +72,7 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1, catalogo2, catalogo3};
+        this.state = { catalogo1, catalogo2, catalogo3 };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
         this.añadir = this.añadir.bind(this);
     }
@@ -138,7 +138,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo1.info}</p>
                                     </CardFooter>
-                                    <Button outline color="warning">Añadir al carrito</Button>
+                                    <Button outline color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -175,7 +175,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo2.info}</p>
                                     </CardFooter>
-                                    <Button outline color="warning">Añadir al carrito</Button>
+                                    <Button outline color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -209,7 +209,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo2.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning">Añadir al carrito</Button>
+                                        <Button outline color="warning"  onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -246,7 +246,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo3.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning">Añadir al carrito</Button>
+                                        <Button outline color="warning"  onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -280,7 +280,7 @@ class Body extends Component {
                                             <CardFooter>
                                                 <p>{catalogo3.info}</p>
                                             </CardFooter>
-                                            <Button outline color="warning">Añadir al carrito</Button>
+                                            <Button outline color="warning"  onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                         </Card>
                                         <p> </p>
                                     </div>
