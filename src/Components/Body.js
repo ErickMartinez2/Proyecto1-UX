@@ -4,13 +4,15 @@ import {
 } from 'reactstrap';
 import {
     OverlayTrigger, Popover
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 import { catalogo1 } from './Catalogo.json';
 import { catalogo2 } from './Catalogo.json';
 import { catalogo3 } from './Catalogo.json';
+import Header from './Header';
+
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -71,13 +73,14 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1, catalogo2, catalogo3 };
+        this.state = { catalogo1, catalogo2, catalogo3, carro:"COMER"};
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
     render() {
+        const carro = this.state.carro
         if (this.state.rSelected === 1) {
             if (this.props.search === "") {
                 const cat1 = this.state.catalogo1.map((catalogo1, i) => {
@@ -96,6 +99,7 @@ class Body extends Component {
                                 <CardFooter>
                                     <p>{catalogo1.info}</p>
                                 </CardFooter>
+                                <Button outline color="info" onClick={() => <Header carrito={carro}/>}>Añadir al carrito</Button>
                             </Card>
                             <p> </p>
                         </div>
@@ -129,6 +133,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo1.info}</p>
                                     </CardFooter>
+                                    <Button outline color="warning">Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -165,6 +170,7 @@ class Body extends Component {
                                     <CardFooter>
                                         <p>{catalogo2.info}</p>
                                     </CardFooter>
+                                    <Button outline color="warning">Añadir al carrito</Button>
                                 </Card>
                                 <p> </p>
                             </div>
@@ -198,6 +204,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo2.info}</p>
                                         </CardFooter>
+                                        <Button outline color="warning">Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -234,6 +241,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo3.info}</p>
                                         </CardFooter>
+                                        <Button outline color="warning">Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -267,6 +275,7 @@ class Body extends Component {
                                             <CardFooter>
                                                 <p>{catalogo3.info}</p>
                                             </CardFooter>
+                                            <Button outline color="warning">Añadir al carrito</Button>
                                         </Card>
                                         <p> </p>
                                     </div>
