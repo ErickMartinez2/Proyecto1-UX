@@ -62,7 +62,7 @@ class Header extends Component {
                                         {this.state.cart.map(producto =>
                                             <tr>
                                                 <td>{producto.nombre}</td>
-                                                <td className="text-right">{producto.precio}</td>
+                                                <td className="text-right">L. {producto.precio}</td>
                                                 <td className="text-right">
                                                     <Button color="danger" onClick={() => this.eliminar(producto)}>X</Button>
                                                 </td>

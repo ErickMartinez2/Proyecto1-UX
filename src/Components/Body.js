@@ -209,7 +209,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo2.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning"  onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
+                                        <Button outline color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -246,7 +246,7 @@ class Body extends Component {
                                         <CardFooter>
                                             <p>{catalogo3.info}</p>
                                         </CardFooter>
-                                        <Button outline color="warning"  onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
+                                        <Button outline color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                     </Card>
                                     <p> </p>
                                 </div>
@@ -280,7 +280,7 @@ class Body extends Component {
                                             <CardFooter>
                                                 <p>{catalogo3.info}</p>
                                             </CardFooter>
-                                            <Button outline color="warning"  onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
+                                            <Button outline color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
                                         </Card>
                                         <p> </p>
                                     </div>
