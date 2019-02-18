@@ -5,7 +5,6 @@ import {
 import {
     OverlayTrigger, Popover, Table
 } from 'react-bootstrap';
-import { Panel } from 'bootstrap';
 import "./Header.css";
 import logo from "./sp2.png";
 import Body from './Body';
@@ -45,7 +44,10 @@ class Header extends Component {
         })
     }
     eliminar(producto) {
-
+        tienda.dispatch({
+            type: "REMOVE_FROM_CART",
+            producto: producto
+        })
     }
     render() {
         const { buscar } = this.state
@@ -55,26 +57,28 @@ class Header extends Component {
                     <Navbar className="Navbar" expand="md">
                         <OverlayTrigger trigger="click" placement="bottom" overlay={
                             <Popover id="popover-basic" title="Carrito de Compras">
-                                {/*
-                                {this.state.cart.map(producto =>
-                                    <Card className="Card">
-                                        <p>{producto.nombre}</p>
-                                        <Button color="primary" onClick={() => this.eliminar(producto)}>primary</Button>
-                                    </Card>
-                                    */},
-                                    <Panel header="HEY">
-                                    <Table fill>
-                                        <tbody>
-                                            {this.state.cart.map(producto =>
-                                                <tr>
-                                                    <td>{producto.nombre}</td>
-                                                    <td>{producto.nombre}</td>
-                                                    <td>{producto.nombre}</td>
-                                                </tr>
-                                            )}
-                                        </tbody>
-                                    </Table>
-                                </Panel>
+                                <Table fill>
+                                    <tbody>
+                                        {this.state.cart.map(producto =>
+                                            <tr>
+                                                <td>{producto.nombre}</td>
+                                                <td className="text-right">{producto.precio}</td>
+                                                <td className="text-right">
+                                                    <Button color="danger" onClick={() => this.eliminar(producto)}>X</Button>
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colSpan="4">
+                                                <strong>
+                                                    Total: L. {this.state.cart.reduce((sum, product) => sum + product.precio, 0)}
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </Table>
                             </Popover>
                         }>
                             <Button outline color="secondary" variant="success">

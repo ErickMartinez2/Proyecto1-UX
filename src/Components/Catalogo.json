@@ -5,7 +5,7 @@
             "genero":"MUJER",
             "nombre":"SPORTSWEAR ESSENTIAL",
             "marca":"NIKE",
-            "precio":"L 925.95",
+            "precio":925.95,
             "ubicacion":"2",
             "info":"Tallas: S, M, L",
             "ra":"si"
@@ -15,7 +15,7 @@
             "genero":"HOMBRE",
             "nombre":"TANJUN RACER",
             "marca":"NIKE",
-            "precio":"L 2,275.95",
+            "precio":2275.95,
             "ubicacion":"1",
             "info":"Tallas de Calzado: 7.5, 9, 9.5, 10, 10.5, 11, 12",
             "ra":"no"
@@ -25,7 +25,7 @@
             "genero":"UNISEX",
             "nombre":"ELEMENTAL SWOOSH",
             "marca":"NIKE",
-            "precio":"L 825.95",
+            "precio":825.95,
             "ubicacion":"3",
             "info":"Talla MISC: Unica",
             "ra":"no"
@@ -35,7 +35,7 @@
             "genero":"HOMBRE",
             "nombre":"DUALTONE RACER",
             "marca":"NIKE",
-            "precio":"L 2,875.95",
+            "precio":2875.95,
             "ubicacion":"1",
             "info":"Tallas de Calzado: 7, 7.5, 9, 9.5, 10.5, 11",
             "ra":"no"
@@ -45,7 +45,7 @@
             "genero":"UNISEX",
             "nombre":"ALL ACCESS SOLEDAY",
             "marca":"NIKE",
-            "precio":"L 1,055.95",
+            "precio":1055.95,
             "ubicacion":"3",
             "info":"Talla MISC: Unica",
             "ra":"no"
@@ -55,7 +55,7 @@
             "genero":"HOMBRE",
             "nombre":"CK RACER",
             "marca":"NIKE",
-            "precio":"L 999.99",
+            "precio":999.99,
             "ubicacion":"1",
             "info":"Talla de Calzado: 10.5",
             "ra":"no"
@@ -67,7 +67,7 @@
             "genero":"HOMBRE",
             "nombre":"BRASILIAN DUFFEL",
             "marca":"NIKE",
-            "precio":"L 975.95",
+            "precio":975.95,
             "ubicacion":"3",
             "info":"Talla MISC: Unica",
             "ra":"no"
@@ -77,7 +77,7 @@
             "genero":"HOMBRE",
             "nombre":"LARGE CAPACITY",
             "marca":"NIKE",
-            "precio":"L 795.95",
+            "precio":795.95,
             "ubicacion":"3",
             "info":"Talla MISC: Unica",
             "ra":"no"
@@ -87,7 +87,7 @@
             "genero":"MUJER",
             "nombre":"PRO TRAINING ALL OVER MESH",
             "marca":"NIKE",
-            "precio":"L 795.95",
+            "precio":795.95,
             "ubicacion":"2",
             "info":"Tallas: S, M, L",
             "ra":"si"
@@ -97,7 +97,7 @@
             "genero":"HOMBRE",
             "nombre":"VARSITY COMPETE TRAINER",
             "marca":"NIKE",
-            "precio":"L 2,375.95",
+            "precio":2375.95,
             "ubicacion":"1",
             "info":"Tallas de Calzado: 7, 7.5, 8.5, 9, 9.5, 10, 10.5, 11, 12",
             "ra":"no"
@@ -107,7 +107,7 @@
             "genero":"HOMBRE",
             "nombre":"ACADEMY JACQUARD",
             "marca":"NIKE",
-            "precio":"L 555.95",
+            "precio":555.95,
             "ubicacion":"3",
             "info":"Tallas: S, M, L, XL",
             "ra":"no"
@@ -117,7 +117,7 @@
             "genero":"MUJER",
             "nombre":"GYM CLUB",
             "marca":"NIKE",
-            "precio":"L 975.95",
+            "precio":975.95,
             "ubicacion":"3",
             "info":"Talla MISC: Unica",
             "ra":"no"
@@ -129,7 +129,7 @@
             "genero":"HOMBRE",
             "nombre":"VAPORMAX FLYKNIT 2",
             "marca":"NIKE",
-            "precio":"L 6,795.95",
+            "precio":6795.95,
             "ubicacion":"1",
             "info":"Tallas de Calzado: 8, 8.5, 9, 9.5, 10, 10.5",
             "ra":"no"
@@ -139,7 +139,7 @@
             "genero":"HOMBRE",
             "nombre":"ELITE CUSHIONED NO-SHOW",
             "marca":"NIKE",
-            "precio":"L 425.95",
+            "precio":425.95,
             "ubicacion":"3",
             "info":"Talla MISC: 12.5, 8-9.5",
             "ra":"no"
@@ -149,7 +149,7 @@
             "genero":"HOMBRE",
             "nombre":"MILLER TOP",
             "marca":"NIKE",
-            "precio":"L 855.95",
+            "precio":855.95,
             "ubicacion":"2",
             "info":"Tallas: S, M, L",
             "ra":"si"
@@ -159,7 +159,7 @@
             "genero":"HOMBRE",
             "nombre":"DISTANCE 7",
             "marca":"NIKE",
-            "precio":"L 1,095.95",
+            "precio":1095.95,
             "ubicacion":"3",
             "info":"Talla: XL",
             "ra":"no"
@@ -169,7 +169,7 @@
             "genero":"MUJER",
             "nombre":"RUNNING TOP",
             "marca":"NIKE",
-            "precio":"L 725.95",
+            "precio":725.95,
             "ubicacion":"2",
             "info":"Tallas: S, M, L",
             "ra":"si"
@@ -179,7 +179,7 @@
             "genero":"MUJER",
             "nombre":"AIR ZOOM PEGASUS 35",
             "marca":"NIKE",
-            "precio":"L 3,695.95",
+            "precio":3695.95,
             "ubicacion":"1",
             "info":"Tallas de Calzado: 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10",
             "ra":"no"

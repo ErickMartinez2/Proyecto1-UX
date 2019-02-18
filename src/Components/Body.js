@@ -99,7 +99,7 @@ class Body extends Component {
                                     <p>{catalogo1.nombre}</p>
                                 </strong>
                                 <p>{catalogo1.marca}</p>
-                                <p>{catalogo1.precio}</p>
+                                <p>L. {catalogo1.precio}</p>
                                 {ubi(catalogo1.ubicacion)}
                                 <CardFooter>
                                     <p>{catalogo1.info}</p>
@@ -133,7 +133,7 @@ class Body extends Component {
                                         <p>{catalogo1.nombre}</p>
                                     </strong>
                                     <p>{catalogo1.marca}</p>
-                                    <p>{catalogo1.precio}</p>
+                                    <p>L. {catalogo1.precio}</p>
                                     {ubi(catalogo1.ubicacion)}
                                     <CardFooter>
                                         <p>{catalogo1.info}</p>
@@ -170,7 +170,7 @@ class Body extends Component {
                                         <p>{catalogo2.nombre}</p>
                                     </strong>
                                     <p>{catalogo2.marca}</p>
-                                    <p>{catalogo2.precio}</p>
+                                    <p>L. {catalogo2.precio}</p>
                                     {ubi(catalogo2.ubicacion)}
                                     <CardFooter>
                                         <p>{catalogo2.info}</p>
@@ -204,7 +204,7 @@ class Body extends Component {
                                             <p>{catalogo2.nombre}</p>
                                         </strong>
                                         <p>{catalogo2.marca}</p>
-                                        <p>{catalogo2.precio}</p>
+                                        <p>L. {catalogo2.precio}</p>
                                         {ubi(catalogo2.ubicacion)}
                                         <CardFooter>
                                             <p>{catalogo2.info}</p>
@@ -241,7 +241,7 @@ class Body extends Component {
                                             <p>{catalogo3.nombre}</p>
                                         </strong>
                                         <p>{catalogo3.marca}</p>
-                                        <p>{catalogo3.precio}</p>
+                                        <p>L. {catalogo3.precio}</p>
                                         {ubi(catalogo3.ubicacion)}
                                         <CardFooter>
                                             <p>{catalogo3.info}</p>
@@ -275,7 +275,7 @@ class Body extends Component {
                                                 <p>{catalogo3.nombre}</p>
                                             </strong>
                                             <p>{catalogo3.marca}</p>
-                                            <p>{catalogo3.precio}</p>
+                                            <p>L. {catalogo3.precio}</p>
                                             {ubi(catalogo3.ubicacion)}
                                             <CardFooter>
                                                 <p>{catalogo3.info}</p>
