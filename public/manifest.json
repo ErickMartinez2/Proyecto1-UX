@@ -1,6 +1,6 @@
 {
-  "short_name": "Catalogo",
-  "name": "Catalogo Virtual",
+  "short_name": "Sportline",
+  "name": "Catalogo Sportline",
   "icons": [
       {
           "src": "./sportline.png",
@@ -19,5 +19,5 @@
   "star_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "black"
 }
