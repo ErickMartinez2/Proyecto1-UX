@@ -5,7 +5,7 @@ import {
 import {
     OverlayTrigger, Popover, Table
 } from 'react-bootstrap';
-import { Panel } from 'react-bootstrap';
+import { Panel } from 'bootstrap';
 import "./Header.css";
 import logo from "./sp2.png";
 import Body from './Body';
