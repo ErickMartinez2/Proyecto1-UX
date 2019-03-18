@@ -9,6 +9,7 @@ import "./Header.css";
 import logo from "./sp2.png";
 import Body from './Body';
 import tienda from '../tienda';
+import B1 from "./B1";
 
 class Header extends Component {
     constructor(props) {
@@ -76,6 +77,7 @@ class Header extends Component {
                                                 </strong>
                                             </td>
                                         </tr>
+                                        
                                     </tfoot>
                                 </Table>
                             </Popover>

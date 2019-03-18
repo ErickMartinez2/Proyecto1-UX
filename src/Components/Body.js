@@ -8,10 +8,8 @@ import {
 import logo from "./img1.jpeg";
 import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
-import { catalogo1 } from './Catalogo.json';
-import { catalogo2 } from './Catalogo.json';
-import { catalogo3 } from './Catalogo.json';
 import tienda from '../tienda';
+import axios from "axios";
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -72,10 +70,29 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1, catalogo2, catalogo3 };
+        this.state = { catalogo1: {}, catalogo2: {}, catalogo3: {} };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
         this.añadir = this.añadir.bind(this);
+        axios
+            .get("https://us-central1-catalogodb-a019f.cloudfunctions.net/catalogo/catalogo1 ")
+            .then(Response => {
+                this.setState({ catalogo1: Response.data.Catalogo });
+                console.log(this.state.catalogo1)
+            });
+        axios
+            .get("https://us-central1-catalogodb-a019f.cloudfunctions.net/catalogo/catalogo2 ")
+            .then(Response => {
+                this.setState({ catalogo2: Response.data.Catalogo });
+                console.log(this.state.catalogo2)
+            });
+        axios
+            .get("https://us-central1-catalogodb-a019f.cloudfunctions.net/catalogo/catalogo3 ")
+            .then(Response => {
+                this.setState({ catalogo3: Response.data.Catalogo });
+                console.log(this.state.catalogo3)
+            });
     }
+
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
@@ -88,10 +105,11 @@ class Body extends Component {
     render() {
         if (this.state.rSelected === 1) {
             if (this.props.search === "") {
-                const cat1 = this.state.catalogo1.map((catalogo1, i) => {
+                const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
+                    let catalogo1 = this.state.catalogo1[prodId]
                     return (
                         <div class="col-md-4">
-                            <Card> 
+                            <Card>
                                 {RA(catalogo1.ra)}
                                 <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
                                 <p>{catalogo1.genero}</p>
@@ -121,7 +139,8 @@ class Body extends Component {
                     </div>
                 );
             } else {
-                const cat1 = this.state.catalogo1.map((catalogo1, i) => {
+                const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
+                let catalogo1 = this.state.catalogo1[prodId]
                     if (catalogo1.nombre.includes(this.props.search)) {
                         return (
                             <div class="col-md-4">
@@ -159,7 +178,8 @@ class Body extends Component {
         } else {
             if (this.state.rSelected === 2) {
                 if (this.props.search === "") {
-                    const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+                    const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
+                    let catalogo2 = this.state.catalogo2[prodId]
                         return (
                             <div class="col-md-4">
                                 <Card>
@@ -192,7 +212,8 @@ class Body extends Component {
                         </div>
                     );
                 } else {
-                    const cat2 = this.state.catalogo2.map((catalogo2, i) => {
+                    const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
+                    let catalogo2 = this.state.catalogo2[prodId]
                         if (catalogo2.nombre.includes(this.props.search)) {
                             return (
                                 <div class="col-md-4">
@@ -230,7 +251,8 @@ class Body extends Component {
             } else {
                 if (this.state.rSelected === 3) {
                     if (this.props.search === "") {
-                        const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                        const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
+                        let catalogo3 = this.state.catalogo3[prodId]
                             return (
                                 <div class="col-md-4">
                                     <Card>
@@ -263,7 +285,8 @@ class Body extends Component {
                             </div>
                         );
                     } else {
-                        const cat3 = this.state.catalogo3.map((catalogo3, i) => {
+                        const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
+                        let catalogo3 = this.state.catalogo3[prodId]
                             if (catalogo3.nombre.includes(this.props.search)) {
                                 return (
                                     <div class="col-md-4">
