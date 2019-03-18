@@ -25,3 +25,13 @@
 .popover-header {
     background-color: orange !important;
 }
+
+.button {
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.button:hover {
+    color:black !important;
+    background-color:white !important;
+}

@@ -9,7 +9,18 @@ import "./Header.css";
 import logo from "./sp2.png";
 import Body from './Body';
 import tienda from '../tienda';
-import B1 from "./B1";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+
+var config = {
+    apiKey: "AIzaSyAIhWJOK5UlUr2yZ3V5XVpcWQroWAA60kU",
+    authDomain: "catalogodb-a019f.firebaseapp.com",
+    databaseURL: "https://catalogodb-a019f.firebaseio.com",
+    projectId: "catalogodb-a019f",
+    storageBucket: "catalogodb-a019f.appspot.com",
+    messagingSenderId: "27899252808"
+};
+firebase.initializeApp(config);
 
 class Header extends Component {
     constructor(props) {
@@ -18,7 +29,8 @@ class Header extends Component {
         this.state = {
             isOpen: false,
             buscar: "",
-            cart: []
+            cart: [],
+            isSignedIn: false
         };
         this.eliminar = this.eliminar.bind(this);
         tienda.subscribe(() => {
@@ -49,6 +61,12 @@ class Header extends Component {
             producto: producto
         })
     }
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(user => {
+            this.setState({ isSignedIn: !!user })
+            console.log("user", user)
+        })
+    }
     render() {
         const { buscar } = this.state
         return (
@@ -77,7 +95,7 @@ class Header extends Component {
                                                 </strong>
                                             </td>
                                         </tr>
-                                        
+
                                     </tfoot>
                                 </Table>
                             </Popover>
@@ -97,7 +115,11 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isOpen} light navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink className="Navlink" href="https://sportline.com.hn/blog">BLOG</NavLink>
+                                    {this.state.isSignedIn ? (
+                                        <Button className="button" onClick={() => firebase.auth().signOut()}>SIGN OUT</Button>
+                                    ) : (
+                                            <Button className="button" onClick={""}>SIGN IN</Button>
+                                        )}
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="Navlink" href="https://sportline.com.hn/buscador-sucursales">SUCURSALES</NavLink>

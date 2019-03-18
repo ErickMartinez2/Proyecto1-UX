@@ -10,6 +10,8 @@ import logo2 from "./img2.jpeg";
 import logo3 from "./img3.jpeg";
 import tienda from '../tienda';
 import axios from "axios";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 const popover = (
     <Popover id="popover-basic" title="Ubicación en la Tienda">
@@ -70,7 +72,7 @@ function RA(ra) {
 class Body extends Component {
     constructor(props) {
         super(props);
-        this.state = { catalogo1: {}, catalogo2: {}, catalogo3: {} };
+        this.state = { catalogo1: {}, catalogo2: {}, catalogo3: {}, isSignedIn: false };
         this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
         this.añadir = this.añadir.bind(this);
         axios
@@ -92,7 +94,15 @@ class Body extends Component {
                 console.log(this.state.catalogo3)
             });
     }
-
+    uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        callbacks: {
+            signInSuccess: () => false
+        }
+    }
     onRadioBtnClick(rSelected) {
         this.setState({ rSelected });
     }
@@ -102,46 +112,18 @@ class Body extends Component {
             producto
         })
     }
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(user => {
+            this.setState({ isSignedIn: !!user })
+            console.log("user", user)
+        })
+    }
     render() {
-        if (this.state.rSelected === 1) {
-            if (this.props.search === "") {
-                const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
-                    let catalogo1 = this.state.catalogo1[prodId]
-                    return (
-                        <div class="col-md-4">
-                            <Card>
-                                {RA(catalogo1.ra)}
-                                <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
-                                <p>{catalogo1.genero}</p>
-                                <strong>
-                                    <p>{catalogo1.nombre}</p>
-                                </strong>
-                                <p>{catalogo1.marca}</p>
-                                <p>L. {catalogo1.precio}</p>
-                                {ubi(catalogo1.ubicacion)}
-                                <CardFooter>
-                                    <p>{catalogo1.info}</p>
-                                </CardFooter>
-                                <Button color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
-                            </Card>
-                            <p> </p>
-                        </div>
-                    );
-                })
-                return (
-                    <div class="container">
-                        <strong>
-                            <h1>COLECCIÓN CASUAL</h1>
-                        </strong>
-                        <div class="row mt-4">
-                            {cat1}
-                        </div>
-                    </div>
-                );
-            } else {
-                const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
-                let catalogo1 = this.state.catalogo1[prodId]
-                    if (catalogo1.nombre.includes(this.props.search)) {
+        if (this.state.isSignedIn) {
+            if (this.state.rSelected === 1) {
+                if (this.props.search === "") {
+                    const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
+                        let catalogo1 = this.state.catalogo1[prodId]
                         return (
                             <div class="col-md-4">
                                 <Card>
@@ -162,59 +144,59 @@ class Body extends Component {
                                 <p> </p>
                             </div>
                         );
-                    }
-                })
-                return (
-                    <div class="container">
-                        <strong>
-                            <h1>COLECCIÓN CASUAL</h1>
-                        </strong>
-                        <div class="row mt-4">
-                            {cat1}
-                        </div>
-                    </div>
-                );
-            }
-        } else {
-            if (this.state.rSelected === 2) {
-                if (this.props.search === "") {
-                    const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
-                    let catalogo2 = this.state.catalogo2[prodId]
-                        return (
-                            <div class="col-md-4">
-                                <Card>
-                                    {RA(catalogo2.ra)}
-                                    <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
-                                    <p>{catalogo2.genero}</p>
-                                    <strong>
-                                        <p>{catalogo2.nombre}</p>
-                                    </strong>
-                                    <p>{catalogo2.marca}</p>
-                                    <p>L. {catalogo2.precio}</p>
-                                    {ubi(catalogo2.ubicacion)}
-                                    <CardFooter>
-                                        <p>{catalogo2.info}</p>
-                                    </CardFooter>
-                                    <Button color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
-                                </Card>
-                                <p> </p>
-                            </div>
-                        );
                     })
                     return (
                         <div class="container">
                             <strong>
-                                <h1>COLECCIÓN TRAINING</h1>
+                                <h1>COLECCIÓN CASUAL</h1>
                             </strong>
                             <div class="row mt-4">
-                                {cat2}
+                                {cat1}
                             </div>
                         </div>
                     );
                 } else {
-                    const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
-                    let catalogo2 = this.state.catalogo2[prodId]
-                        if (catalogo2.nombre.includes(this.props.search)) {
+                    const cat1 = Object.keys(this.state.catalogo1).map(prodId => {
+                        let catalogo1 = this.state.catalogo1[prodId]
+                        if (catalogo1.nombre.includes(this.props.search)) {
+                            return (
+                                <div class="col-md-4">
+                                    <Card>
+                                        {RA(catalogo1.ra)}
+                                        <img style={{ width: "100%", height: "auto" }} src={catalogo1.imagen} />
+                                        <p>{catalogo1.genero}</p>
+                                        <strong>
+                                            <p>{catalogo1.nombre}</p>
+                                        </strong>
+                                        <p>{catalogo1.marca}</p>
+                                        <p>L. {catalogo1.precio}</p>
+                                        {ubi(catalogo1.ubicacion)}
+                                        <CardFooter>
+                                            <p>{catalogo1.info}</p>
+                                        </CardFooter>
+                                        <Button color="warning" onClick={() => this.añadir(catalogo1)}>Añadir al carrito</Button>
+                                    </Card>
+                                    <p> </p>
+                                </div>
+                            );
+                        }
+                    })
+                    return (
+                        <div class="container">
+                            <strong>
+                                <h1>COLECCIÓN CASUAL</h1>
+                            </strong>
+                            <div class="row mt-4">
+                                {cat1}
+                            </div>
+                        </div>
+                    );
+                }
+            } else {
+                if (this.state.rSelected === 2) {
+                    if (this.props.search === "") {
+                        const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
+                            let catalogo2 = this.state.catalogo2[prodId]
                             return (
                                 <div class="col-md-4">
                                     <Card>
@@ -235,59 +217,59 @@ class Body extends Component {
                                     <p> </p>
                                 </div>
                             );
-                        }
-                    })
-                    return (
-                        <div class="container">
-                            <strong>
-                                <h1>COLECCIÓN TRAINING</h1>
-                            </strong>
-                            <div class="row mt-4">
-                                {cat2}
-                            </div>
-                        </div>
-                    );
-                }
-            } else {
-                if (this.state.rSelected === 3) {
-                    if (this.props.search === "") {
-                        const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
-                        let catalogo3 = this.state.catalogo3[prodId]
-                            return (
-                                <div class="col-md-4">
-                                    <Card>
-                                        {RA(catalogo3.ra)}
-                                        <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
-                                        <p>{catalogo3.genero}</p>
-                                        <strong>
-                                            <p>{catalogo3.nombre}</p>
-                                        </strong>
-                                        <p>{catalogo3.marca}</p>
-                                        <p>L. {catalogo3.precio}</p>
-                                        {ubi(catalogo3.ubicacion)}
-                                        <CardFooter>
-                                            <p>{catalogo3.info}</p>
-                                        </CardFooter>
-                                        <Button color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
-                                    </Card>
-                                    <p> </p>
-                                </div>
-                            );
                         })
                         return (
                             <div class="container">
                                 <strong>
-                                    <h1>COLECCIÓN RUNNING</h1>
+                                    <h1>COLECCIÓN TRAINING</h1>
                                 </strong>
                                 <div class="row mt-4">
-                                    {cat3}
+                                    {cat2}
                                 </div>
                             </div>
                         );
                     } else {
-                        const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
-                        let catalogo3 = this.state.catalogo3[prodId]
-                            if (catalogo3.nombre.includes(this.props.search)) {
+                        const cat2 = Object.keys(this.state.catalogo2).map(prodId => {
+                            let catalogo2 = this.state.catalogo2[prodId]
+                            if (catalogo2.nombre.includes(this.props.search)) {
+                                return (
+                                    <div class="col-md-4">
+                                        <Card>
+                                            {RA(catalogo2.ra)}
+                                            <img style={{ width: "100%", height: "auto" }} src={catalogo2.imagen} />
+                                            <p>{catalogo2.genero}</p>
+                                            <strong>
+                                                <p>{catalogo2.nombre}</p>
+                                            </strong>
+                                            <p>{catalogo2.marca}</p>
+                                            <p>L. {catalogo2.precio}</p>
+                                            {ubi(catalogo2.ubicacion)}
+                                            <CardFooter>
+                                                <p>{catalogo2.info}</p>
+                                            </CardFooter>
+                                            <Button color="warning" onClick={() => this.añadir(catalogo2)}>Añadir al carrito</Button>
+                                        </Card>
+                                        <p> </p>
+                                    </div>
+                                );
+                            }
+                        })
+                        return (
+                            <div class="container">
+                                <strong>
+                                    <h1>COLECCIÓN TRAINING</h1>
+                                </strong>
+                                <div class="row mt-4">
+                                    {cat2}
+                                </div>
+                            </div>
+                        );
+                    }
+                } else {
+                    if (this.state.rSelected === 3) {
+                        if (this.props.search === "") {
+                            const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
+                                let catalogo3 = this.state.catalogo3[prodId]
                                 return (
                                     <div class="col-md-4">
                                         <Card>
@@ -308,44 +290,96 @@ class Body extends Component {
                                         <p> </p>
                                     </div>
                                 );
-                            }
-                        })
-                        return (
-                            <div class="container">
-                                <strong>
-                                    <h1>COLECCIÓN RUNNING</h1>
-                                </strong>
-                                <div class="row mt-4">
-                                    {cat3}
+                            })
+                            return (
+                                <div class="container">
+                                    <strong>
+                                        <h1>COLECCIÓN RUNNING</h1>
+                                    </strong>
+                                    <div class="row mt-4">
+                                        {cat3}
+                                    </div>
                                 </div>
-                            </div>
-                        );
+                            );
+                        } else {
+                            const cat3 = Object.keys(this.state.catalogo3).map(prodId => {
+                                let catalogo3 = this.state.catalogo3[prodId]
+                                if (catalogo3.nombre.includes(this.props.search)) {
+                                    return (
+                                        <div class="col-md-4">
+                                            <Card>
+                                                {RA(catalogo3.ra)}
+                                                <img style={{ width: "100%", height: "auto" }} src={catalogo3.imagen} />
+                                                <p>{catalogo3.genero}</p>
+                                                <strong>
+                                                    <p>{catalogo3.nombre}</p>
+                                                </strong>
+                                                <p>{catalogo3.marca}</p>
+                                                <p>L. {catalogo3.precio}</p>
+                                                {ubi(catalogo3.ubicacion)}
+                                                <CardFooter>
+                                                    <p>{catalogo3.info}</p>
+                                                </CardFooter>
+                                                <Button color="warning" onClick={() => this.añadir(catalogo3)}>Añadir al carrito</Button>
+                                            </Card>
+                                            <p> </p>
+                                        </div>
+                                    );
+                                }
+                            })
+                            return (
+                                <div class="container">
+                                    <strong>
+                                        <h1>COLECCIÓN RUNNING</h1>
+                                    </strong>
+                                    <div class="row mt-4">
+                                        {cat3}
+                                    </div>
+                                </div>
+                            );
+                        }
                     }
                 }
             }
+            return (
+                <div>
+                    <Card>
+                        <CardImg width="100%" src={logo} alt="Card image cap" />
+                        <CardBody>
+                            <Button outline color="secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>VER COLECCIÓN</Button>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardImg src={logo2} alt="Card image cap" />
+                        <CardBody>
+                            <Button outline color="secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>VER COLECCIÓN</Button>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardImg src={logo3} alt="Card image cap" />
+                        <CardBody>
+                            <Button outline color="secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.rSelected === 3}>VER COLECCIÓN</Button>
+                        </CardBody>
+                    </Card>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Card>
+                        <CardHeader>
+                            <h1>Sign In</h1>
+                        </CardHeader>
+                        <CardBody>
+                            <StyledFirebaseAuth
+                                uiConfig={this.uiConfig}
+                                firebaseAuth={firebase.auth()}
+                            />
+                        </CardBody>
+                    </Card>
+                </div>
+            );
         }
-        return (
-            <div>
-                <Card>
-                    <CardImg width="100%" src={logo} alt="Card image cap" />
-                    <CardBody>
-                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>VER COLECCIÓN</Button>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardImg src={logo2} alt="Card image cap" />
-                    <CardBody>
-                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>VER COLECCIÓN</Button>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardImg src={logo3} alt="Card image cap" />
-                    <CardBody>
-                        <Button outline color="secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.rSelected === 3}>VER COLECCIÓN</Button>
-                    </CardBody>
-                </Card>
-            </div>
-        );
     }
 }
 
